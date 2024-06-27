@@ -6,7 +6,7 @@
 /*   By: htopa <htopa@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 12:47:32 by htopa             #+#    #+#             */
-/*   Updated: 2024/06/24 19:08:43 by htopa            ###   ########.fr       */
+/*   Updated: 2024/06/28 00:46:59 by htopa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static char	*get_full_line(char *buffer)
 	return (line);
 }
 
-static char	*get_rest_of_line(char *buffer)
+static char	*update_rest_of_line(char *buffer)
 {
 	char	*rest_of_line;
 	int		index;
@@ -82,6 +82,6 @@ char	*get_next_line(int fd)
 	line = get_full_line(rest_of_line[fd]);
 	if (!line)
 		return (ft_free(&rest_of_line[fd]));
-	rest_of_line[fd] = get_rest_of_line(rest_of_line[fd]);
+	rest_of_line[fd] = update_rest_of_line(rest_of_line[fd]);
 	return (line);
 }
